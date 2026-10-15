@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- POR QUE ISSO FOI FEITO:
+     O Slide 11 determina que cada item da RecyclerView mostre a palavra e a categoria.
+     Usamos margens simétricas para que o cartão fique alinhado tanto no LinearLayoutManager
+     (lista vertical) quanto no GridLayoutManager (grade de 2 colunas). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/bg_card_atelier"
+    android:orientation="vertical"
+    android:padding="14dp">
+
+    <!-- Nome da Palavra Cadastrada -->
+    <TextView
+        android:id="@+id/tvItemPalavra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_warm_ivory"
+        android:textSize="@dimen/text_body_regular"
+        android:textStyle="bold"
+        tools:text="Interestelar" />
+
+    <!-- Categoria do Item -->
+    <TextView
+        android:id="@+id/tvItemCategoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/accent_champagne_gold"
+        android:textSize="@dimen/text_caption_small"
+        android:textStyle="italic"
+        tools:text="Filmes" />
+
+</LinearLayout>

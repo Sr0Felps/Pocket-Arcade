@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- POR QUE ISSO FOI FEITO:
+     O Slide 5 exige uma animação XML de entrada na Tela 2 com fade ou translate.
+     Combinamos ambos (translate vertical suave + alpha fade-in de 500ms) para uma
+     transição fluida ao abrir a Central de Desafios. -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="500"
+    android:interpolator="@android:anim/decelerate_interpolator">
+
+    <translate
+        android:fromYDelta="25%p"
+        android:toYDelta="0%p" />
+
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0" />
+</set>

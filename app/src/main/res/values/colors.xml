@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- POR QUE ISSO FOI FEITO:
+         O Slide 13 exige que todas as cores estejam organizadas em recursos XML,
+         e o Slide 15 pede personalização visual distinta do mockup original.
+         Criamos a paleta "Atelier Obsidian & Champagne Gold" para garantir contraste
+         editorial, legibilidade máxima e identidade visual única para cada módulo. -->
+
+    <!-- Fundos Arquitetônicos (Obsidian & Graphite) -->
+    <color name="bg_obsidian_primary">#121318</color>
+    <color name="bg_slate_card">#1C1F26</color>
+    <color name="bg_graphite_input">#252934</color>
+    <color name="border_subtle_gold">#3D3522</color>
+
+    <!-- Identidade Principal e Acentos de Luxo -->
+    <color name="accent_champagne_gold">#E5B842</color>
+    <color name="accent_terracotta">#E06D53</color>
+    <color name="accent_jade_teal">#38B2AC</color>
+    <color name="accent_royal_amethyst">#9F7AEA</color>
+    <color name="accent_sunset_amber">#F6AD55</color>
+
+    <!-- Hierarquia Tipográfica -->
+    <color name="text_warm_ivory">#F7F5F0</color>
+    <color name="text_cool_silver">#A0AEC0</color>
+    <color name="text_slate_hint">#64748B</color>
+    <color name="text_dark_on_gold">#121318</color>
+
+    <!-- Cores Semânticas Obrigatórias para a Tela 5 (Código Secreto estilo TERMO - Slide 9) -->
+    <color name="termo_green">#2F9E44</color>   <!-- Verde: dígito certo na posição certa -->
+    <color name="termo_yellow">#F59F00</color>  <!-- Amarelo: dígito existe na posição errada -->
+    <color name="termo_gray">#495057</color>    <!-- Cinza: dígito não existe no código -->
+    <color name="danger_crimson">#E03131</color> <!-- Ações críticas / encerrar sessão -->
 </resources>

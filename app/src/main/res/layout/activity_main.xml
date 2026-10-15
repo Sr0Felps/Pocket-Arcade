@@ -1,19 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- POR QUE ISSO FOI FEITO:
+     O Slide 4 exige o uso de ConstraintLayout na Tela 1 para posicionar o logotipo
+     personalizado (@drawable/ic_logo_arcade), os dados dos dois integrantes da dupla,
+     o campo de apelido e o botão de entrada com restrições relativas. -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_obsidian_primary"
+    android:padding="@dimen/screen_padding"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!-- Logotipo personalizado vetorial com contentDescription obrigatório (Slides 4, 13 e 15) -->
+    <ImageView
+        android:id="@+id/ivLogoApp"
+        android:layout_width="@dimen/icon_size_hero"
+        android:layout_height="@dimen/icon_size_hero"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_card_atelier"
+        android:contentDescription="@string/cd_logo_app"
+        android:padding="14dp"
+        android:src="@drawable/ic_logo_arcade"
+        app:tint="@color/accent_champagne_gold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Título Principal do Aplicativo -->
+    <TextView
+        android:id="@+id/tvAppTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:letterSpacing="0.08"
+        android:text="@string/t1_app_title"
+        android:textColor="@color/accent_champagne_gold"
+        android:textSize="@dimen/text_title_hero"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLogoApp" />
+
+    <!-- Subtítulo Editorial -->
+    <TextView
+        android:id="@+id/tvAppSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:text="@string/t1_subtitle"
+        android:textColor="@color/text_cool_silver"
+        android:textSize="@dimen/text_body_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAppTitle" />
+
+    <!-- Cartão de Identificação da Dupla (Exigência do Slide 4: "Em dupla, mostre os dados dos dois integrantes") -->
+    <LinearLayout
+        android:id="@+id/cardAuthorsInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_card_atelier"
+        android:orientation="vertical"
+        android:padding="@dimen/card_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAppSubtitle">
+
+        <TextView
+            android:id="@+id/tvCourseName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/t1_course_name"
+            android:textColor="@color/accent_champagne_gold"
+            android:textSize="@dimen/text_body_regular"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvStudent1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/t1_student_1"
+            android:textColor="@color/text_warm_ivory"
+            android:textSize="@dimen/text_caption_small" />
+
+        <TextView
+            android:id="@+id/tvStudent2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/t1_student_2"
+            android:textColor="@color/text_warm_ivory"
+            android:textSize="@dimen/text_caption_small" />
+    </LinearLayout>
+
+    <!-- Divisor dourado sutil -->
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/border_subtle_gold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardAuthorsInfo" />
+
+    <!-- Rótulo do Campo de Apelido -->
+    <TextView
+        android:id="@+id/tvLabelNickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/t1_label_nickname"
+        android:textColor="@color/text_warm_ivory"
+        android:textSize="@dimen/text_body_regular"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewDivider" />
+
+    <!-- Campo de Entrada de Apelido com inputType adequado (Slide 13) -->
+    <EditText
+        android:id="@+id/etNickname"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_input_atelier"
+        android:hint="@string/t1_hint_nickname"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName|textCapWords"
+        android:maxLines="1"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/text_warm_ivory"
+        android:textColorHint="@color/text_slate_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLabelNickname" />
+
+    <!-- Botão Principal em Terracotta Coral (Sem android:onClick, respeitando o Slide 13) -->
+    <Button
+        android:id="@+id/btnEntrarArcade"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@color/accent_terracotta"
+        android:text="@string/t1_btn_enter"
+        android:textColor="@color/text_warm_ivory"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNickname" />
+
+    <!-- Painel informativo do último módulo usado ao encerrar sessão (Slide 12) -->
+    <TextView
+        android:id="@+id/tvUltimoModulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_card_atelier"
+        android:gravity="center"
+        android:padding="12dp"
+        android:textColor="@color/accent_champagne_gold"
+        android:textSize="@dimen/text_caption_small"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEntrarArcade"
+        tools:text="Sessão finalizada • Último desafio acessado: Arena"
+        tools:visibility="visible" />
+
+    <!-- Rodapé indicando modalidade em dupla -->
+    <TextView
+        android:id="@+id/tvWorkMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/t1_work_mode"
+        android:textColor="@color/text_cool_silver"
+        android:textSize="@dimen/text_caption_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- POR QUE ISSO FOI FEITO:
+     O Slide 2 exige que os layouts e a rolagem acomodem o conteúdo em telas pequenas.
+     Usamos NestedScrollView com fillViewport="true" e um único LinearLayout vertical
+     para garantir que o teclado virtual nunca esconda o painel de resultados. -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian_primary"
+    android:fillViewport="true"
+    tools:context=".ScannerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <!-- Cabeçalho do Desafio -->
+        <TextView
+            android:id="@+id/tvTituloScanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/t3_title"
+            android:textColor="@color/accent_jade_teal"
+            android:textSize="@dimen/text_title_hero"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSubtituloScanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="18dp"
+            android:text="@string/t3_subtitle"
+            android:textColor="@color/text_cool_silver"
+            android:textSize="@dimen/text_body_regular" />
+
+        <!-- Campo de Entrada da Mensagem com inputType adequado (Slide 13) -->
+        <EditText
+            android:id="@+id/etMensagemScanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_atelier"
+            android:gravity="top|start"
+            android:hint="@string/t3_hint_input"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine|textCapSentences"
+            android:minHeight="90dp"
+            android:padding="16dp"
+            android:textColor="@color/text_warm_ivory"
+            android:textColorHint="@color/text_slate_hint" />
+
+        <!-- Linha de Botões: Analisar e Limpar (Obrigatórios pelo Slide 6) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAnalisarMensagem"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/accent_jade_teal"
+                android:text="@string/t3_btn_analyze"
+                android:textColor="@color/text_dark_on_gold"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnLimparMensagem"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/termo_gray"
+                android:text="@string/t3_btn_clear"
+                android:textColor="@color/text_warm_ivory"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- PAINEL DE RESULTADO (Slide 6):
+             Inicia oculto (visibility="gone") e surge com animação XML ao clicar em Analisar. -->
+        <LinearLayout
+            android:id="@+id/panelResultadoScanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_card_atelier"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <!-- Medida 1: Caracteres sem espaços -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/t3_lbl_chars_no_space"
+                    android:textColor="@color/text_cool_silver"
+                    android:textSize="@dimen/text_body_regular" />
+
+                <TextView
+                    android:id="@+id/tvResCharsSemEspaco"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/accent_champagne_gold"
+                    android:textSize="@dimen/text_body_regular"
+                    android:textStyle="bold"
+                    tools:text="14" />
+            </LinearLayout>
+
+            <!-- Medida 2: Quantidade de Palavras -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/t3_lbl_words"
+                    android:textColor="@color/text_cool_silver"
+                    android:textSize="@dimen/text_body_regular" />
+
+                <TextView
+                    android:id="@+id/tvResPalavras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/accent_champagne_gold"
+                    android:textSize="@dimen/text_body_regular"
+                    android:textStyle="bold"
+                    tools:text="4" />
+            </LinearLayout>
+
+            <!-- Medida 3: Quantidade de Vogais -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/t3_lbl_vowels"
+                    android:textColor="@color/text_cool_silver"
+                    android:textSize="@dimen/text_body_regular" />
+
+                <TextView
+                    android:id="@+id/tvResVogais"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/accent_champagne_gold"
+                    android:textSize="@dimen/text_body_regular"
+                    android:textStyle="bold"
+                    tools:text="8" />
+            </LinearLayout>
+
+            <!-- Medida 4: Texto Invertido -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t3_lbl_inverted"
+                android:textColor="@color/text_cool_silver"
+                android:textSize="@dimen/text_body_regular" />
+
+            <TextView
+                android:id="@+id/tvResTextoInvertido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="12dp"
+                android:textColor="@color/text_warm_ivory"
+                android:textSize="@dimen/text_body_regular"
+                android:textStyle="italic|bold"
+                tools:text="asac ad adacas A" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="12dp"
+                android:background="@color/border_subtle_gold" />
+
+            <!-- Medida 5: Palíndromo (Sim / Não) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/t3_lbl_palindrome"
+                    android:textColor="@color/text_warm_ivory"
+                    android:textSize="@dimen/text_title_section"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvResPalindromo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/accent_jade_teal"
+                    android:textSize="@dimen/text_title_section"
+                    android:textStyle="bold"
+                    tools:text="Sim" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Botões de Navegação e Pilha de Activities (Slide 12) -->
+        <Button
+            android:id="@+id/btnVoltarCentralScanner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/bg_graphite_input"
+            android:text="@string/btn_back_central"
+            android:textColor="@color/text_warm_ivory" />
+
+        <Button
+            android:id="@+id/btnEncerrarSessaoScanner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/danger_crimson"
+            android:text="@string/btn_end_session"
+            android:textColor="@color/text_warm_ivory"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- POR QUE ISSO FOI FEITO:
+     Os Slides 7 e 8 determinam que os 3 botões com imagens (@drawable/ic_pedra,
+     @drawable/ic_papel e @drawable/ic_tesoura), os painéis animados de escolha,
+     o placar e o botão Nova Partida fiquem todos na mesma Activity. -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian_primary"
+    android:fillViewport="true"
+    tools:context=".ArenaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <!-- Título e Regras da Melhor de Três (Slide 7) -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/t4_title"
+            android:textColor="@color/accent_terracotta"
+            android:textSize="@dimen/text_title_hero"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/t4_rules"
+            android:textColor="@color/text_cool_silver"
+            android:textSize="@dimen/text_body_regular" />
+
+        <!-- Cartão do Placar (Jogador x Dispositivo) -->
+        <TextView
+            android:id="@+id/tvPlacarArena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_card_atelier"
+            android:gravity="center"
+            android:padding="14dp"
+            android:textColor="@color/accent_champagne_gold"
+            android:textSize="@dimen/text_title_section"
+            android:textStyle="bold"
+            tools:text="Filipe [1]  ×  [0] Dispositivo" />
+
+        <!-- Instrução de Escolha -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/t4_choose_move"
+            android:textColor="@color/text_warm_ivory"
+            android:textSize="@dimen/text_body_regular"
+            android:textStyle="bold" />
+
+        <!-- TRÊS BOTÕES COM IMAGENS PERSONALIZADAS PARA A ESCOLHA DO JOGADOR (Slides 7, 13 e 15) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <!-- Opção 1: PEDRA (@drawable/ic_pedra) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_atelier"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <ImageButton
+                    android:id="@+id/btnJogadaPedra"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_input_atelier"
+                    android:contentDescription="@string/cd_btn_rock"
+                    android:padding="14dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_pedra"
+                    app:tint="@color/accent_champagne_gold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/t4_rock"
+                    android:textColor="@color/text_warm_ivory"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Opção 2: PAPEL (@drawable/ic_papel) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_atelier"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <ImageButton
+                    android:id="@+id/btnJogadaPapel"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_input_atelier"
+                    android:contentDescription="@string/cd_btn_paper"
+                    android:padding="14dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_papel"
+                    app:tint="@color/accent_jade_teal" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/t4_paper"
+                    android:textColor="@color/text_warm_ivory"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Opção 3: TESOURA (@drawable/ic_tesoura) -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_atelier"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <ImageButton
+                    android:id="@+id/btnJogadaTesoura"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_input_atelier"
+                    android:contentDescription="@string/cd_btn_scissors"
+                    android:padding="14dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_tesoura"
+                    app:tint="@color/accent_terracotta" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/t4_scissors"
+                    android:textColor="@color/text_warm_ivory"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- PAINEL DE CONFRONTO ANIMADO (Slide 8: "Anime as escolhas do jogador e do dispositivo") -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <!-- Card da Escolha do Jogador -->
+            <LinearLayout
+                android:id="@+id/cardEscolhaJogador"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_atelier"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:id="@+id/tvLabelEscolhaJogador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_cool_silver"
+                    android:textSize="@dimen/text_caption_small"
+                    tools:text="Filipe" />
+
+                <TextView
+                    android:id="@+id/tvValorEscolhaJogador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="—"
+                    android:textColor="@color/accent_champagne_gold"
+                    android:textSize="@dimen/text_title_section"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Card da Escolha do Dispositivo -->
+            <LinearLayout
+                android:id="@+id/cardEscolhaDispositivo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_atelier"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dispositivo"
+                    android:textColor="@color/text_cool_silver"
+                    android:textSize="@dimen/text_caption_small" />
+
+                <TextView
+                    android:id="@+id/tvValorEscolhaDispositivo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="—"
+                    android:textColor="@color/accent_terracotta"
+                    android:textSize="@dimen/text_title_section"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- MENSAGEM DE RESULTADO ANIMADA (Slide 8) -->
+        <TextView
+            android:id="@+id/tvMensagemResultadoArena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_card_atelier"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/t4_waiting_move"
+            android:textColor="@color/text_warm_ivory"
+            android:textSize="@dimen/text_body_regular"
+            android:textStyle="bold" />
+
+        <!-- Botão NOVA PARTIDA (Slide 7: reinicia o placar) -->
+        <Button
+            android:id="@+id/btnNovaPartidaArena"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/accent_champagne_gold"
+            android:text="@string/t4_btn_new_match"
+            android:textColor="@color/text_dark_on_gold"
+            android:textStyle="bold" />
+
+        <!-- Botões de Navegação e Pilha de Activities (Slide 12) -->
+        <Button
+            android:id="@+id/btnVoltarCentralArena"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/bg_graphite_input"
+            android:text="@string/btn_back_central"
+            android:textColor="@color/text_warm_ivory" />
+
+        <Button
+            android:id="@+id/btnEncerrarSessaoArena"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/danger_crimson"
+            android:text="@string/btn_end_session"
+            android:textColor="@color/text_warm_ivory"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

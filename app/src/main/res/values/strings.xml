@@ -1,3 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- POR QUE ISSO FOI FEITO:
+         O Slide 13 exige que todos os textos visíveis e descrições de imagem
+         (contentDescription) fiquem em strings.xml, facilitando manutenção e acessibilidade. -->
+
     <string name="app_name">Pocket Arcade</string>
+
+    <!-- ================= TELA 1: APRESENTAÇÃO (EM DUPLA - SLIDE 4) ================= -->
+    <string name="t1_app_title">POCKET ARCADE</string>
+    <string name="t1_subtitle">Atelier de Desafios Interativos</string>
+    <string name="t1_course_name">Curso: Análise e Desenvolvimento de Sistemas</string>
+    <string name="t1_student_1">• Filipe Costa Junqueira — Mat.: 20242012000016</string>
+    <string name="t1_student_2">• Rodrigo Pinheiro De Queiroz — Mat.: 20242012000580</string>
+    <string name="t1_work_mode">Trabalho Avaliativo em Dupla</string>
+    <string name="t1_label_nickname">Identificação do Jogador</string>
+    <string name="t1_hint_nickname">Digite seu apelido (mín. 3 caracteres)</string>
+    <string name="t1_btn_enter">Entrar no Pocket Arcade</string>
+    <string name="t1_err_invalid_nick">Informe um apelido válido com pelo menos 3 caracteres!</string>
+    <string name="t1_last_module_format">Sessão finalizada • Último desafio acessado: %1$s</string>
+    <string name="cd_logo_app">Emblema dourado do aplicativo Pocket Arcade</string>
+
+    <!-- ================= TELA 2: CENTRAL DE DESAFIOS (SLIDE 5) ================= -->
+    <string name="t2_greeting_format">Olá, %1$s!</string>
+    <string name="t2_default_player">Jogador</string>
+    <string name="t2_subtitle">Explore os quatro desafios abaixo. Role a tela para visualizar todos os módulos:</string>
+
+    <string name="t2_card1_title">1. Scanner de Mensagens</string>
+    <string name="t2_card1_desc">Inspecione frases em cinco medidas exatas: contagem sem espaços, palavras, vogais, inversão e detecção de palíndromos.</string>
+    <string name="cd_icon_scanner">Ícone de lupa do módulo Scanner de Mensagens</string>
+
+    <string name="t2_card2_title">2. Arena: Pedra, Papel e Tesoura</string>
+    <string name="t2_card2_desc">Duelo tático em melhor de três rodadas contra o dispositivo, com feedback sonoro e animações em tempo real.</string>
+    <string name="cd_icon_arena">Ícone de duelo do módulo Arena Pedra, Papel e Tesoura</string>
+
+    <string name="t2_card3_title">3. Cofre do Código Secreto</string>
+    <string name="t2_card3_desc">Decifre a combinação oculta de 4 dígitos únicos em até 8 tentativas guiando-se pelas pistas de cores do Termo.</string>
+    <string name="cd_icon_secret">Ícone de cofre do módulo Código Secreto</string>
+
+    <string name="t2_card4_title">4. Randomizador de Palavras</string>
+    <string name="t2_card4_desc">Gerencie coleções dinâmicas com RecyclerView, alterne entre Lista e Grade e realize sorteios por categoria.</string>
+    <string name="cd_icon_random">Ícone de sorteio do módulo Randomizador de Palavras</string>
+
+    <string name="btn_open_challenge">Abrir Desafio</string>
+    <string name="btn_back_presentation">Trocar Jogador (Voltar à Tela 1)</string>
+
+    <!-- ================= NAVEGAÇÃO PADRÃO DOS MÓDULOS (SLIDE 12) ================= -->
+    <string name="btn_back_central">Voltar à Central</string>
+    <string name="btn_end_session">Encerrar Sessão</string>
+
+    <!-- ================= TELA 3: SCANNER DE MENSAGENS (SLIDE 6) ================= -->
+    <string name="t3_title">Scanner de Mensagens</string>
+    <string name="t3_subtitle">Insira uma mensagem de ao menos 3 caracteres para análise estrutural:</string>
+    <string name="t3_hint_input">Ex: A sacada da casa</string>
+    <string name="t3_btn_analyze">Analisar</string>
+    <string name="t3_btn_clear">Limpar</string>
+    <string name="t3_err_short_text">Digite um texto válido com no mínimo 3 caracteres!</string>
+    <string name="t3_lbl_chars_no_space">Caracteres sem espaços:</string>
+    <string name="t3_lbl_words">Palavras:</string>
+    <string name="t3_lbl_vowels">Vogais:</string>
+    <string name="t3_lbl_inverted">Texto invertido:</string>
+    <string name="t3_lbl_palindrome">Palíndromo:</string>
+    <string name="t3_yes">Sim</string>
+    <string name="t3_no">Não</string>
+
+    <!-- ================= TELA 4: ARENA PEDRA, PAPEL E TESOURA (SLIDES 7 E 8) ================= -->
+    <string name="t4_title">Arena: Melhor de Três</string>
+    <string name="t4_rules">Vence quem alcançar duas vitórias primeiro. Empates não somam pontos.</string>
+    <string name="t4_choose_move">Escolha sua jogada:</string>
+    <string name="t4_rock">Pedra</string>
+    <string name="t4_paper">Papel</string>
+    <string name="t4_scissors">Tesoura</string>
+    <string name="cd_btn_rock">Botão de escolha da jogada Pedra</string>
+    <string name="cd_btn_paper">Botão de escolha da jogada Papel</string>
+    <string name="cd_btn_scissors">Botão de escolha da jogada Tesoura</string>
+    <string name="t4_score_format">%1$s [%2$d]  ×  [%3$d] Dispositivo</string>
+    <string name="t4_choices_format">Sua escolha: %1$s   |   Dispositivo: %2$s</string>
+    <string name="t4_waiting_move">Toque em Pedra, Papel ou Tesoura para iniciar a partida.</string>
+    <string name="t4_round_win">Vitória na rodada!</string>
+    <string name="t4_round_loss">Derrota na rodada!</string>
+    <string name="t4_round_tie">Empate na rodada! O placar permanece igual.</string>
+    <string name="t4_match_win">🏆 VITÓRIA FINAL! Você alcançou 2 vitórias e dominou a Arena!</string>
+    <string name="t4_match_loss">💀 DERROTA FINAL! O dispositivo alcançou 2 vitórias primeiro.</string>
+    <string name="t4_btn_new_match">Nova Partida</string>
+
+    <!-- ================= TELA 5: CÓDIGO SECRETO (SLIDES 9 E 10) ================= -->
+    <string name="t5_title">Cofre do Código Secreto</string>
+    <string name="t5_rules">Descubra os 4 dígitos diferentes em até 8 tentativas.\n🟢 Posição certa  |  🟡 Posição errada  |  ⚫ Não existe</string>
+    <string name="t5_hint_guess">Digite quatro números diferentes</string>
+    <string name="t5_btn_try">Tentar</string>
+    <string name="t5_btn_new_game">Nova Partida</string>
+    <string name="t5_err_empty">O campo de tentativa não pode estar vazio!</string>
+    <string name="t5_err_length">Informe exatamente 4 dígitos numéricos!</string>
+    <string name="t5_err_repeated">Dígitos repetidos não são permitidos! Digite 4 números diferentes.</string>
+    <string name="t5_attempts_status">Tentativas utilizadas: %1$d / 8</string>
+    <string name="t5_history_title">Histórico das tentativas:</string>
+    <string name="t5_history_empty">Nenhuma tentativa registrada até o momento.</string>
+    <string name="t5_win_msg">🔓 VITÓRIA! Você descobriu o código %1$s em %2$d tentativa(s)!\nTempo decorrido: %3$d s.</string>
+    <string name="t5_loss_msg">🔒 DERROTA! As 8 tentativas acabaram. O código secreto era %1$s.\nTempo decorrido: %2$d s.</string>
+
+    <!-- ================= TELA 6: RANDOMIZADOR DE PALAVRAS (SLIDE 11) ================= -->
+    <string name="t6_title">Randomizador de Palavras</string>
+    <string name="t6_subtitle">Cadastre palavras por categoria e realize sorteios. Dê um clique longo em qualquer item para excluí-lo.</string>
+    <string name="t6_hint_word">Digite uma palavra ou item...</string>
+    <string name="t6_btn_add">Adicionar</string>
+    <string name="t6_btn_draw">Sortear</string>
+    <string name="t6_btn_toggle_layout">Lista / Grade</string>
+    <string name="t6_err_empty_word">Informe uma palavra válida (mín. 2 caracteres)!</string>
+    <string name="t6_err_empty_category">Nenhum item encontrado na categoria "%1$s" para sortear!</string>
+    <string name="t6_draw_result_format">✨ Sorteado em [%1$s]: %2$s</string>
+    <string name="t6_item_deleted">Item removido com sucesso!</string>
+    <string name="cd_category_spinner">Seletor de categorias do Randomizador</string>
+
+    <string-array name="t6_categories_array">
+        <item>Filmes</item>
+        <item>Comidas</item>
+        <item>Lugares</item>
+        <item>Desafios</item>
+        <item>Clássicos Retrô</item>
+    </string-array>
 </resources>

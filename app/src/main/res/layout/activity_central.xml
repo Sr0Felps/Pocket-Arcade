@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- POR QUE ISSO FOI FEITO:
+     O Slide 5 exige que a raiz da Tela 2 seja um NestedScrollView com android:fillViewport="true"
+     e exatamente UM único LinearLayout vertical como filho direto, apresentando os 4 painéis
+     com os novos ícones vetoriais personalizados de res/drawable. -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedScrollCentral"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian_primary"
+    android:fillViewport="true"
+    tools:context=".CentralActivity">
+
+    <!-- Único filho direto permitido dentro do NestedScrollView (Slide 5) -->
+    <LinearLayout
+        android:id="@+id/llContainerDesafios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <!-- Saudação personalizada com o apelido recebido da Tela 1 -->
+        <TextView
+            android:id="@+id/tvSaudacaoJogador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_champagne_gold"
+            android:textSize="@dimen/text_title_hero"
+            android:textStyle="bold"
+            tools:text="Olá, Filipe!" />
+
+        <TextView
+            android:id="@+id/tvSubtituloCentral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/t2_subtitle"
+            android:textColor="@color/text_cool_silver"
+            android:textSize="@dimen/text_body_regular" />
+
+        <!-- ================= PAINEL 1: SCANNER DE MENSAGENS (JADE TEAL) ================= -->
+        <LinearLayout
+            android:id="@+id/panelScanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_margin_bottom"
+            android:background="@drawable/bg_card_atelier"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_panel"
+                android:layout_height="@dimen/icon_size_panel"
+                android:contentDescription="@string/cd_icon_scanner"
+                android:src="@drawable/ic_scanner_lupa"
+                app:tint="@color/accent_jade_teal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/t2_card1_title"
+                android:textColor="@color/accent_jade_teal"
+                android:textSize="@dimen/text_title_section"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/t2_card1_desc"
+                android:textColor="@color/text_cool_silver"
+                android:textSize="@dimen/text_body_regular" />
+
+            <Button
+                android:id="@+id/btnAbrirScanner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="14dp"
+                android:backgroundTint="@color/accent_jade_teal"
+                android:text="@string/btn_open_challenge"
+                android:textColor="@color/text_dark_on_gold"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ================= PAINEL 2: ARENA PEDRA, PAPEL E TESOURA (TERRACOTTA) ================= -->
+        <LinearLayout
+            android:id="@+id/panelArena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_margin_bottom"
+            android:background="@drawable/bg_card_atelier"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_panel"
+                android:layout_height="@dimen/icon_size_panel"
+                android:contentDescription="@string/cd_icon_arena"
+                android:src="@drawable/ic_arena_duelo"
+                app:tint="@color/accent_terracotta" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/t2_card2_title"
+                android:textColor="@color/accent_terracotta"
+                android:textSize="@dimen/text_title_section"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/t2_card2_desc"
+                android:textColor="@color/text_cool_silver"
+                android:textSize="@dimen/text_body_regular" />
+
+            <Button
+                android:id="@+id/btnAbrirArena"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="14dp"
+                android:backgroundTint="@color/accent_terracotta"
+                android:text="@string/btn_open_challenge"
+                android:textColor="@color/text_warm_ivory"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ================= PAINEL 3: COFRE DO CÓDIGO SECRETO (SUNSET AMBER) ================= -->
+        <LinearLayout
+            android:id="@+id/panelSecretCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_margin_bottom"
+            android:background="@drawable/bg_card_atelier"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_panel"
+                android:layout_height="@dimen/icon_size_panel"
+                android:contentDescription="@string/cd_icon_secret"
+                android:src="@drawable/ic_cofre_secreto"
+                app:tint="@color/accent_sunset_amber" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/t2_card3_title"
+                android:textColor="@color/accent_sunset_amber"
+                android:textSize="@dimen/text_title_section"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/t2_card3_desc"
+                android:textColor="@color/text_cool_silver"
+                android:textSize="@dimen/text_body_regular" />
+
+            <Button
+                android:id="@+id/btnAbrirCodigoSecreto"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="14dp"
+                android:backgroundTint="@color/accent_sunset_amber"
+                android:text="@string/btn_open_challenge"
+                android:textColor="@color/text_dark_on_gold"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ================= PAINEL 4: RANDOMIZADOR DE PALAVRAS (ROYAL AMETHYST) ================= -->
+        <LinearLayout
+            android:id="@+id/panelRandomizer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_card_atelier"
+            android:orientation="vertical"
+            android:padding="@dimen/card_padding">
+
+            <ImageView
+                android:layout_width="@dimen/icon_size_panel"
+                android:layout_height="@dimen/icon_size_panel"
+                android:contentDescription="@string/cd_icon_random"
+                android:src="@drawable/ic_random_dados"
+                app:tint="@color/accent_royal_amethyst" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/t2_card4_title"
+                android:textColor="@color/accent_royal_amethyst"
+                android:textSize="@dimen/text_title_section"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/t2_card4_desc"
+                android:textColor="@color/text_cool_silver"
+                android:textSize="@dimen/text_body_regular" />
+
+            <Button
+                android:id="@+id/btnAbrirRandomizador"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="14dp"
+                android:backgroundTint="@color/accent_royal_amethyst"
+                android:text="@string/btn_open_challenge"
+                android:textColor="@color/text_warm_ivory"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Botão para retornar à Tela 1 fechando a Central com finish() (Slide 3 e Slide 12) -->
+        <Button
+            android:id="@+id/btnVoltarApresentacao"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:backgroundTint="@color/termo_gray"
+            android:text="@string/btn_back_presentation"
+            android:textColor="@color/text_warm_ivory" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- POR QUE ISSO FOI FEITO:
+     O Slide 11 exige campo de valor, Spinner de categoria, botões Adicionar, Sortear e
+     alternar Lista/Grade, além da RecyclerView para exibir e atualizar os itens cadastrados. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_obsidian_primary"
+    android:orientation="vertical"
+    android:padding="@dimen/screen_padding"
+    tools:context=".RandomizerActivity">
+
+    <!-- Cabeçalho -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/t6_title"
+        android:textColor="@color/accent_royal_amethyst"
+        android:textSize="@dimen/text_title_hero"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="@string/t6_subtitle"
+        android:textColor="@color/text_cool_silver"
+        android:textSize="@dimen/text_caption_small" />
+
+    <!-- Linha de Cadastro: Campo de Valor + Spinner de Categoria (Slide 11) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etPalavraRandom"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1.2"
+            android:background="@drawable/bg_input_atelier"
+            android:hint="@string/t6_hint_word"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences"
+            android:maxLines="1"
+            android:paddingHorizontal="12dp"
+            android:textColor="@color/text_warm_ivory"
+            android:textColorHint="@color/text_slate_hint"
+            android:textSize="@dimen/text_body_regular" />
+
+        <Spinner
+            android:id="@+id/spinnerCategorias"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card_atelier"
+            android:contentDescription="@string/cd_category_spinner"
+            android:entries="@array/t6_categories_array"
+            android:paddingHorizontal="8dp" />
+    </LinearLayout>
+
+    <!-- Linha com os 3 Botões Obrigatórios: Adicionar, Sortear e Lista / Grade (Slide 11) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnAdicionarPalavra"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/accent_jade_teal"
+            android:text="@string/t6_btn_add"
+            android:textColor="@color/text_dark_on_gold"
+            android:textSize="@dimen/text_caption_small"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnSortearPalavra"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginHorizontal="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/accent_royal_amethyst"
+            android:text="@string/t6_btn_draw"
+            android:textColor="@color/text_warm_ivory"
+            android:textSize="@dimen/text_caption_small"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnAlternarLayout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/accent_champagne_gold"
+            android:text="@string/t6_btn_toggle_layout"
+            android:textColor="@color/text_dark_on_gold"
+            android:textSize="@dimen/text_caption_small"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Painel de Resultado do Sorteio (Animado quando ocorre sorteio - Slide 11) -->
+    <TextView
+        android:id="@+id/tvResultadoSorteio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_card_atelier"
+        android:gravity="center"
+        android:padding="12dp"
+        android:textColor="@color/accent_champagne_gold"
+        android:textSize="@dimen/text_body_regular"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:text="✨ Sorteado em [Filmes]: Interestelar"
+        tools:visibility="visible" />
+
+    <!-- RecyclerView ocupando o espaço central dinâmico (layout_weight="1") -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPalavras"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        tools:listitem="@layout/item_word" />
+
+    <!-- Rodapé de Navegação e Pilha de Activities (Slide 12) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnVoltarCentralRandom"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/bg_graphite_input"
+            android:text="@string/btn_back_central"
+            android:textColor="@color/text_warm_ivory"
+            android:textSize="@dimen/text_caption_small" />
+
+        <Button
+            android:id="@+id/btnEncerrarSessaoRandom"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/danger_crimson"
+            android:text="@string/btn_end_session"
+            android:textColor="@color/text_warm_ivory"
+            android:textSize="@dimen/text_caption_small"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- POR QUE ISSO FOI FEITO:
+         Centralizar dimensões (Slide 13) permite manter proporções consistentes em
+         todas as 6 telas e garante que o conteúdo se acomode bem em telas menores. -->
+
+    <dimen name="screen_padding">20dp</dimen>
+    <dimen name="card_padding">18dp</dimen>
+    <dimen name="card_margin_bottom">16dp</dimen>
+    <dimen name="corner_radius_card">14dp</dimen>
+    <dimen name="corner_radius_input">10dp</dimen>
+    <dimen name="stroke_width_thin">1dp</dimen>
+    <dimen name="button_height">54dp</dimen>
+    <dimen name="icon_size_hero">68dp</dimen>
+    <dimen name="icon_size_panel">48dp</dimen>
+
+    <!-- Escala Tipográfica -->
+    <dimen name="text_title_hero">26sp</dimen>
+    <dimen name="text_title_section">19sp</dimen>
+    <dimen name="text_body_regular">15sp</dimen>
+    <dimen name="text_caption_small">13sp</dimen>
+</resources>
