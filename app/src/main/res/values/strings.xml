@@ -4,10 +4,10 @@
          O Slide 13 exige que todos os textos visíveis e descrições de imagem
          (contentDescription) fiquem em strings.xml, facilitando manutenção e acessibilidade. -->
 
-    <string name="app_name">Pocket Arcade</string>
+    <string name="app_name">PlayGo</string>
 
     <!-- ================= TELA 1: APRESENTAÇÃO (EM DUPLA - SLIDE 4) ================= -->
-    <string name="t1_app_title">POCKET ARCADE</string>
+    <string name="t1_app_title">@string/app_name</string>
     <string name="t1_subtitle">Atelier de Desafios Interativos</string>
     <string name="t1_course_name">Curso: Análise e Desenvolvimento de Sistemas</string>
     <string name="t1_student_1">• Filipe Costa Junqueira — Mat.: 20242012000016</string>
@@ -15,10 +15,10 @@
     <string name="t1_work_mode">Trabalho Avaliativo em Dupla</string>
     <string name="t1_label_nickname">Identificação do Jogador</string>
     <string name="t1_hint_nickname">Digite seu apelido (mín. 3 caracteres)</string>
-    <string name="t1_btn_enter">Entrar no Pocket Arcade</string>
+    <string name="t1_btn_enter">Entrar no PlayGo</string>
     <string name="t1_err_invalid_nick">Informe um apelido válido com pelo menos 3 caracteres!</string>
     <string name="t1_last_module_format">Sessão finalizada • Último desafio acessado: %1$s</string>
-    <string name="cd_logo_app">Emblema dourado do aplicativo Pocket Arcade</string>
+    <string name="cd_logo_app">Emblema dourado do aplicativo PlayGo</string>
 
     <!-- ================= TELA 2: CENTRAL DE DESAFIOS (SLIDE 5) ================= -->
     <string name="t2_greeting_format">Olá, %1$s!</string>
